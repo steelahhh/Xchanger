@@ -9,6 +9,7 @@ object Libs {
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.aacStable}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.aacStable}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.aacStable}"
     const val materialComponents =
         "com.google.android.material:material:${Versions.materialComponents}"
     const val constraintLayout =
@@ -25,4 +26,6 @@ object Libs {
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
     const val mvrx = "com.airbnb.android:mvrx:${Versions.mvrx}"
+    const val mvrxTesting = "com.airbnb.android:mvrx-testing:${Versions.mvrx}"
+    const val mvrxMocks = "com.airbnb.android:mvrx-launcher:${Versions.mvrx}"
 }

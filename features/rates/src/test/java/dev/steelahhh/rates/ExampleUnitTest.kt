@@ -1,6 +1,8 @@
-package dev.steelahhh.xchanger
+package dev.steelahhh.rates
 
+import com.airbnb.mvrx.test.MvRxTestRule
 import org.junit.Assert.assertEquals
+import org.junit.Rule
 import org.junit.Test
 
 /**
@@ -9,6 +11,10 @@ import org.junit.Test
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
+
+    @get:Rule
+    val rule = MvRxTestRule()
+
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)

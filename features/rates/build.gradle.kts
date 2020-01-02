@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
@@ -8,7 +8,6 @@ android {
     compileSdkVersion(Config.targetSdk)
 
     defaultConfig {
-        applicationId = Config.applicationId
         minSdkVersion(Config.minSdk)
         targetSdkVersion(Config.targetSdk)
         versionCode = Config.versionCode
@@ -21,15 +20,6 @@ android {
         isExperimental = true
     }
 
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
-        }
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -39,25 +29,18 @@ android {
 }
 
 dependencies {
-    arrayOf(
-        Modules.core,
-        Modules.rates
-    ).forEach { module ->
-        implementation(project(module))
-    }
+    implementation(project(Modules.core))
 
     arrayOf(
         Libs.kotlin,
         Libs.coreKtx,
-        Libs.appcompat,
         Libs.materialComponents,
-        Libs.constraintLayout,
-        Libs.adapterDelegates,
+        Libs.recyclerView,
         Libs.mvrx,
+        Libs.moshi,
+        Libs.moshiRetrofitAdapter,
         Libs.rxJava,
-        Libs.rxKotlin,
         Libs.rxAndroid,
-        Libs.retrofit,
         Libs.daggerCore
     ).forEach { dep ->
         implementation(dep)
@@ -66,6 +49,7 @@ dependencies {
     kapt(Libs.daggerCompiler)
 
     testImplementation(Libs.junit)
+    testImplementation(Libs.mvrxTesting)
     androidTestImplementation(Libs.junitExtensions)
     androidTestImplementation(Libs.espresso)
 }
