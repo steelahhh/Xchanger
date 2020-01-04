@@ -1,9 +1,10 @@
-package dev.steelahhh.rates
+package dev.steelahhh.rates.presentation
 
 import androidx.core.view.isGone
 import com.airbnb.mvrx.BaseMvRxFragment
 import com.airbnb.mvrx.fragmentViewModel
 import com.airbnb.mvrx.withState
+import dev.steelahhh.rates.R
 import kotlinx.android.synthetic.main.fragment_rates.*
 
 /*
@@ -19,6 +20,16 @@ class RatesListFragment : BaseMvRxFragment(R.layout.fragment_rates) {
         ratesList.isGone = state.isLoading
         if (state.isLoading) ratesListProgress.show()
         else ratesListProgress.hide()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onStart()
+    }
+
+    override fun onStop() {
+        viewModel.onStop()
+        super.onStop()
     }
 
     companion object {

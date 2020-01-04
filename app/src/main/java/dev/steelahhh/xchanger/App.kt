@@ -27,7 +27,7 @@ open class App : Application(), InjectorProvider {
     }
 
     private fun initializeMvRx() {
-        MvRx.viewModelConfigFactory = MvRxViewModelConfigFactory(applicationContext)
+        MvRx.viewModelConfigFactory = MvRxViewModelConfigFactory(false)
     }
 
     private fun initializeRxPlugin() {

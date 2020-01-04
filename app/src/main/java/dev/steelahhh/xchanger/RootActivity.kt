@@ -2,7 +2,7 @@ package dev.steelahhh.xchanger
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.steelahhh.rates.RatesListFragment
+import dev.steelahhh.rates.presentation.RatesListFragment
 
 class RootActivity : AppCompatActivity() {
 

@@ -39,7 +39,9 @@ dependencies {
         Libs.mvrx,
         Libs.moshi,
         Libs.moshiRetrofitAdapter,
+        Libs.retrofitRxAdapter,
         Libs.rxJava,
+        Libs.rxKotlin,
         Libs.rxAndroid,
         Libs.daggerCore
     ).forEach { dep ->
@@ -47,6 +49,7 @@ dependencies {
     }
 
     kapt(Libs.daggerCompiler)
+    kapt(Libs.moshiCodegen)
 
     testImplementation(Libs.junit)
     testImplementation(Libs.mvrxTesting)

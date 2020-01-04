@@ -1,4 +1,4 @@
-package dev.steelahhh.rates
+package dev.steelahhh.rates.presentation
 
 import com.airbnb.mvrx.MvRxState
 
@@ -8,5 +8,6 @@ import com.airbnb.mvrx.MvRxState
  */
 
 data class RatesListState(
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    val currency: String = "EUR"
 ) : MvRxState

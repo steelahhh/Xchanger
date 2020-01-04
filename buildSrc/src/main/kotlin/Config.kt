@@ -1,6 +1,6 @@
 object Config {
     const val applicationId = "dev.steelahhh.xchanger"
-    const val minSdk = 19
+    const val minSdk = 21
     const val targetSdk = 29
 
     const val versionCode = 100

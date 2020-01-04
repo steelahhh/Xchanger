@@ -14,7 +14,6 @@ import dev.steelahh.core.rx.SchedulerProviderImpl
 @Module
 object CoreModule {
     @Provides
-    @JvmStatic
     @Reusable
     fun provideSchedulers(): SchedulerProvider = SchedulerProviderImpl()
 }
