@@ -84,14 +84,14 @@ class RatesListViewModel(
 
         val baseCurrency = items.find { it.key == currency } ?: return emptyList()
 
-        return (listOf(baseCurrency) + (items - baseCurrency)).map { rate ->
+        return (listOf(baseCurrency) + (items - baseCurrency).sortedBy { it.key }).map { rate ->
             rate.toUi(convertValue, rate.key == currency)
         }
     }
 
     private fun RatesListState.recreateList(): List<CurrencyRateUi> {
         val baseCurrency = rates.find { it.key == currency } ?: return emptyList()
-        return (listOf(baseCurrency) + (rates - baseCurrency))
+        return (listOf(baseCurrency) + (rates - baseCurrency).sortedBy { it.key })
     }
 
     companion object : MvRxViewModelFactory<RatesListViewModel, RatesListState> {
