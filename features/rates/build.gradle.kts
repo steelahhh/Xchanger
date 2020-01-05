@@ -36,6 +36,7 @@ dependencies {
         Libs.coreKtx,
         Libs.materialComponents,
         Libs.recyclerView,
+        Libs.adapterDelegates,
         Libs.mvrx,
         Libs.moshi,
         Libs.moshiRetrofitAdapter,

@@ -2,7 +2,7 @@ package dev.steelahhh.rates
 
 import com.airbnb.mvrx.test.MvRxTestRule
 import dev.steelahhh.rates.data.CurrencyRatesApi
-import dev.steelahhh.rates.data.CurrencyRatesRepository
+import dev.steelahhh.rates.data.CurrencyRatesRepositoryImpl
 import dev.steelahhh.rates.data.CurrencyRatesResponse
 import dev.steelahhh.rates.presentation.RatesListState
 import dev.steelahhh.rates.presentation.RatesListViewModel
@@ -11,7 +11,7 @@ import org.junit.ClassRule
 import org.junit.Test
 
 class CurrencyRatesListTest {
-    private val repository = CurrencyRatesRepository(object : CurrencyRatesApi {
+    private val repository = CurrencyRatesRepositoryImpl(object : CurrencyRatesApi {
         override fun currencyRates(baseCurrency: String): Single<CurrencyRatesResponse> {
             return Single.just(CurrencyRatesResponse(baseCurrency, hashMapOf()))
         }

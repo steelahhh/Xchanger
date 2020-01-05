@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_h">16dp</dimen>
+    <dimen name="spacing_m">12dp</dimen>
+
+    <dimen name="text_size_body">14sp</dimen>
+</resources>

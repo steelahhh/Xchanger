@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="screen_rates_title">Rates</string>
+    <string name="rate_empty_hint">0</string>
 </resources>
