@@ -5,14 +5,19 @@
     android:background="?android:windowBackground"
     android:orientation="horizontal">
 
+    <ImageView
+        android:id="@+id/currencyFlag"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/spacing_h"
+        android:src="@drawable/try_flag" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/spacing_h"
         android:paddingTop="@dimen/spacing_h"
-        android:paddingRight="@dimen/spacing_h"
         android:paddingBottom="@dimen/spacing_m">
 
         <TextView
@@ -39,7 +44,10 @@
         android:layout_marginEnd="@dimen/spacing_h"
         android:layout_marginRight="@dimen/spacing_h"
         android:hint="@string/rate_empty_hint"
+        android:imeOptions="actionDone"
         android:inputType="numberDecimal"
-        android:textColorHint="?android:textColorSecondary" />
+        android:textColor="?android:textColorPrimary"
+        android:textColorHint="?android:textColorSecondary"
+        android:textSize="20sp" />
 
 </LinearLayout>

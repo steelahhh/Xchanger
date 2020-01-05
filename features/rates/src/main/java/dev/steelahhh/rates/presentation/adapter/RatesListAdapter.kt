@@ -1,6 +1,8 @@
 package dev.steelahhh.rates.presentation.adapter
 
 import android.text.Editable
+import android.view.inputmethod.EditorInfo
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import com.google.android.material.textfield.TextInputEditText
@@ -57,10 +59,27 @@ fun rateDelegate(
 
     val keyTv: TextView = findViewById(R.id.currencyKey)
     val nameTv: TextView = findViewById(R.id.currencyTitle)
+    val imageFlag: ImageView = findViewById(R.id.currencyFlag)
     val valueEditText: TextInputEditText = findViewById(R.id.currencyValue)
 
     bind { payload ->
         valueEditText.removeTextChangedListener(textWatcher)
+
+        /**
+         * Load the images straight from the resources
+         * Glide or some other library might be introduced in the future
+         * Also good idea would be to not store the flags locally, and get them from API
+         */
+        try {
+            val flagRes = context.resources.getIdentifier(
+                item.key.toLowerCase() + "_flag",
+                "drawable",
+                context.applicationContext.packageName
+            )
+            imageFlag.setImageDrawable(context.getDrawable(flagRes))
+        } catch (e: Exception) {
+            // might need to handle the case when there's no flag for the given currency
+        }
 
         if (payload.isEmpty()) {
             keyTv.text = item.key
@@ -85,6 +104,14 @@ fun rateDelegate(
                     moveCursorToEnd()
                     v.showSoftKeyboard()
                 }
+            }
+
+            setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    clearFocus()
+                    hideSoftKeyboard()
+                }
+                false
             }
         }
     }

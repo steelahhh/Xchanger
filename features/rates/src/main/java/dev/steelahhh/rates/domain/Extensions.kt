@@ -27,11 +27,12 @@ fun CurrencyRatesResponse.toDomain() = rates.entries.map { (key, value) ->
 fun CurrencyRate.toUi(
     baseValue: BigDecimal,
     isEditable: Boolean,
-    mathContext: MathContext = MathContext(12, RoundingMode.HALF_EVEN)
+    mathContext: MathContext = MathContext(0, RoundingMode.HALF_EVEN)
 ) = CurrencyRateUi(
     key = key,
     name = name,
     value = (coefficient * baseValue).round(mathContext)
+        .stripTrailingZeros()
         .apply { setScale(2, mathContext.roundingMode) }
         .toPlainString(),
     isEditable = isEditable
