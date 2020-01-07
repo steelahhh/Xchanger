@@ -21,5 +21,5 @@ class CurrencyRatesRepositoryImpl @Inject constructor(
     /**
      * This potentially could be stored in SharedPreferences or something similar
      */
-    override val pollingRate: Long = 1000L
+    override val pollingRate: PollingRate = PollingRate(time = 1000L)
 }

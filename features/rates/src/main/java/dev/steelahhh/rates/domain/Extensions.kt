@@ -12,6 +12,8 @@ import java.util.Currency
  * 4/1/20
  */
 
+internal val DEFAULT_MATH_CONTEXT = MathContext(12, RoundingMode.HALF_EVEN)
+
 fun CurrencyRatesResponse.toDomain() = (rates?.entries?.map { (key, value) ->
     CurrencyRate(
         key = key,
@@ -34,13 +36,15 @@ private fun CurrencyRatesResponse.getBaseCurrency(): List<CurrencyRate> {
 fun CurrencyRate.toUi(
     baseValue: BigDecimal,
     isEditable: Boolean,
-    mathContext: MathContext = MathContext(12, RoundingMode.HALF_EVEN)
+    mathContext: MathContext = DEFAULT_MATH_CONTEXT
 ) = CurrencyRateUi(
     key = key,
     name = name,
-    value = (coefficient * baseValue).round(mathContext)
-        .setScale(2, mathContext.roundingMode)
-        .stripTrailingZeros()
-        .toPlainString(),
+    value = (coefficient * baseValue).formatRate(mathContext),
     isEditable = isEditable
 )
+
+internal fun BigDecimal.formatRate(mathContext: MathContext): String = round(mathContext)
+    .setScale(2, mathContext.roundingMode)
+    .stripTrailingZeros()
+    .toPlainString()

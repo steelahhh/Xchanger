@@ -39,12 +39,15 @@ class RatesListViewModel(
                 .map { it.getOrThrow().toDomain() }
                 .retry { _ ->
                     /**
-                     * Error handling could be split into different case, i.e. Network, API, etc
+                     * Error handling could be split into different cases, i.e. Network, API, etc
                      */
                     setState { copy(isError = true, isLoading = false) }
                     true
                 }
-                .repeatWhen { it.delay(currencyRatesRepository.pollingRate, TimeUnit.MILLISECONDS) }
+                .repeatWhen {
+                    val (pollingRate, timeUnit) = currencyRatesRepository.pollingRate
+                    it.delay(pollingRate, timeUnit)
+                }
                 .toObservable()
                 .execute {
                     copy(

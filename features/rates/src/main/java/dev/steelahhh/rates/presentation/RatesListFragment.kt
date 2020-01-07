@@ -2,7 +2,6 @@ package dev.steelahhh.rates.presentation
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +11,6 @@ import com.airbnb.mvrx.withState
 import com.google.android.material.snackbar.Snackbar
 import dev.steelahh.core.setTextMaxLines
 import dev.steelahhh.rates.R
-import dev.steelahhh.rates.presentation.adapter.RatesListAdapter
 import kotlinx.android.synthetic.main.fragment_rates.*
 
 /*

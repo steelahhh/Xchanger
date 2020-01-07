@@ -1,4 +1,4 @@
-package dev.steelahhh.rates.presentation.adapter
+package dev.steelahhh.rates.presentation
 
 import android.text.Editable
 import android.view.inputmethod.EditorInfo
@@ -13,7 +13,6 @@ import dev.steelahh.core.hideSoftKeyboard
 import dev.steelahh.core.moveCursorToEnd
 import dev.steelahh.core.showSoftKeyboard
 import dev.steelahhh.rates.R
-import dev.steelahhh.rates.presentation.CurrencyRateUi
 import java.math.BigDecimal
 
 /*
@@ -24,7 +23,12 @@ import java.math.BigDecimal
 class RatesListAdapter(
     onRateClick: (CurrencyRateUi) -> Unit,
     onTextChanged: (BigDecimal) -> Unit
-) : BaseAdapter<CurrencyRateUi>(rateDelegate(onRateClick, onTextChanged)) {
+) : BaseAdapter<CurrencyRateUi>(
+    rateDelegate(
+        onRateClick,
+        onTextChanged
+    )
+) {
     override val diffItemCallback: DiffUtil.ItemCallback<CurrencyRateUi>? =
         object : DiffUtil.ItemCallback<CurrencyRateUi>() {
             override fun areItemsTheSame(
