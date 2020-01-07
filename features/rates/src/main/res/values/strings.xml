@@ -2,4 +2,7 @@
 <resources>
     <string name="screen_rates_title">Rates</string>
     <string name="rate_empty_hint">0</string>
+
+    <string name="rates_error_message_empty">No network connection.\nConnect to network to load the currency rates.</string>
+    <string name="rates_error_message">No network connection. Showing the last known currency rates.\nConnect to network to get the latest rates.</string>
 </resources>

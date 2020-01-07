@@ -8,6 +8,6 @@ import io.reactivex.Single
  */
 
 interface CurrencyRatesRepository {
-    fun get(currency: String): Single<CurrencyRatesResponse>
+    fun get(currency: String): Single<Result<CurrencyRatesResponse>>
     val pollingRate: Long
 }

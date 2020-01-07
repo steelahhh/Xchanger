@@ -12,17 +12,24 @@ import java.util.Currency
  * 4/1/20
  */
 
-fun CurrencyRatesResponse.toDomain() = rates.entries.map { (key, value) ->
+fun CurrencyRatesResponse.toDomain() = (rates?.entries?.map { (key, value) ->
     CurrencyRate(
         key = key,
         name = Currency.getInstance(key).displayName,
         coefficient = value
     )
-} + CurrencyRate(
-    key = base,
-    name = Currency.getInstance(base).displayName,
-    coefficient = BigDecimal.ONE
-)
+} ?: emptyList()) + getBaseCurrency()
+
+private fun CurrencyRatesResponse.getBaseCurrency(): List<CurrencyRate> {
+    if (base == null) return emptyList()
+    return listOf(
+        CurrencyRate(
+            key = base,
+            name = Currency.getInstance(base).displayName,
+            coefficient = BigDecimal.ONE
+        )
+    )
+}
 
 fun CurrencyRate.toUi(
     baseValue: BigDecimal,
@@ -32,8 +39,8 @@ fun CurrencyRate.toUi(
     key = key,
     name = name,
     value = (coefficient * baseValue).round(mathContext)
+        .setScale(2, mathContext.roundingMode)
         .stripTrailingZeros()
-        .apply { setScale(2, mathContext.roundingMode) }
         .toPlainString(),
     isEditable = isEditable
 )

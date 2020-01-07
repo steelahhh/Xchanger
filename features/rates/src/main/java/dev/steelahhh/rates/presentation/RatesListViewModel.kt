@@ -35,8 +35,15 @@ class RatesListViewModel(
 
     fun startObserving() = withState { state ->
         if (state.convertValue != BigDecimal.ZERO) {
-            disposables += currencyRatesRepository.get(state.currency).map { it.toDomain() }
-                .retry()
+            disposables += currencyRatesRepository.get(state.currency)
+                .map { it.getOrThrow().toDomain() }
+                .retry { _ ->
+                    /**
+                     * Error handling could be split into different case, i.e. Network, API, etc
+                     */
+                    setState { copy(isError = true, isLoading = false) }
+                    true
+                }
                 .repeatWhen { it.delay(currencyRatesRepository.pollingRate, TimeUnit.MILLISECONDS) }
                 .toObservable()
                 .execute {

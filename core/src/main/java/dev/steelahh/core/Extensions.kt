@@ -7,7 +7,9 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import dev.steelahh.core.di.InjectorProvider
 
 /*
@@ -51,4 +53,9 @@ open class EmptyTextWatcher : TextWatcher {
 
 fun EditText.moveCursorToEnd() {
     if (length() > 0) setSelection(length())
+}
+
+fun Snackbar.setTextMaxLines(lines: Int) {
+    val textView: TextView = view.findViewById(com.google.android.material.R.id.snackbar_text)
+    textView.maxLines = lines
 }

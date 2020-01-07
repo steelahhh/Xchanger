@@ -13,7 +13,10 @@ import javax.inject.Inject
 class CurrencyRatesRepositoryImpl @Inject constructor(
     private val api: CurrencyRatesApi
 ) : CurrencyRatesRepository {
-    override fun get(currency: String): Single<CurrencyRatesResponse> = api.currencyRates(currency)
+    override fun get(currency: String): Single<Result<CurrencyRatesResponse>> =
+        api.currencyRates(currency)
+            .map { if (it.rates.isNullOrEmpty()) Result.failure(ApiError) else Result.success(it) }
+            .onErrorReturn { Result.failure(it) }
 
     /**
      * This potentially could be stored in SharedPreferences or something similar

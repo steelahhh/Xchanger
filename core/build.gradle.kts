@@ -32,6 +32,7 @@ dependencies {
     arrayOf(
         Libs.kotlin,
         Libs.coreKtx,
+        Libs.materialComponents,
         Libs.adapterDelegates,
         Libs.mvrx,
         Libs.moshi,

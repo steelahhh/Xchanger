@@ -10,6 +10,6 @@ import java.math.BigDecimal
 
 @JsonClass(generateAdapter = true)
 data class CurrencyRatesResponse(
-    val base: String,
-    val rates: Map<String, BigDecimal>
+    val base: String?,
+    val rates: Map<String, BigDecimal>?
 )
