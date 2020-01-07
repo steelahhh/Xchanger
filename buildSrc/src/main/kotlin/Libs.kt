@@ -6,6 +6,7 @@ object Libs {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val junitExtensions = "androidx.test.ext:junit:${Versions.junitExtensions}"
     const val junit = "junit:junit:${Versions.junit}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.aacStable}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.aacStable}"

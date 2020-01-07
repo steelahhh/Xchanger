@@ -52,6 +52,7 @@ dependencies {
     kapt(Libs.daggerCompiler)
     kapt(Libs.moshiCodegen)
 
+    testImplementation(Libs.mockk)
     testImplementation(Libs.junit)
     testImplementation(Libs.mvrxTesting)
     androidTestImplementation(Libs.junitExtensions)

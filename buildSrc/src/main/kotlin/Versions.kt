@@ -4,6 +4,7 @@ object Versions {
 
     const val junitExtensions = "1.1.1"
     const val junit = "4.13"
+    const val mockk = "1.9.3"
     const val adapterDelegates = "4.2.0"
     const val constraintLayout = "1.1.3"
     const val espresso = "3.2.0"
