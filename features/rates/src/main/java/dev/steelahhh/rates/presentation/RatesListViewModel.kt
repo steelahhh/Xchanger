@@ -15,14 +15,13 @@ import dev.steelahhh.rates.domain.toUi
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import java.math.BigDecimal
-import java.util.concurrent.TimeUnit
 
 /*
  * Author: steelahhh
  * 2/1/20
  */
 
-class RatesListViewModel(
+internal class RatesListViewModel(
     initialState: RatesListState,
     private val currencyRatesRepository: CurrencyRatesRepository
 ) : BaseMvRxViewModel<RatesListState>(initialState = initialState) {

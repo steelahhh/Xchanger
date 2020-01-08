@@ -14,12 +14,12 @@ import io.mockk.mockk
 import io.reactivex.Single.just
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.TestScheduler
-import org.junit.Before
-import org.junit.ClassRule
-import org.junit.Test
 import java.math.BigDecimal
 import java.util.concurrent.TimeUnit
 import kotlin.Result.Companion.success
+import org.junit.Before
+import org.junit.ClassRule
+import org.junit.Test
 
 class CurrencyRatesListTest {
     private val repository = mockk<CurrencyRatesRepository>()

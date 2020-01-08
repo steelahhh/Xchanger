@@ -20,7 +20,7 @@ import java.math.BigDecimal
  * 4/1/20
  */
 
-class RatesListAdapter(
+internal class RatesListAdapter(
     onRateClick: (CurrencyRateUi) -> Unit,
     onTextChanged: (BigDecimal) -> Unit
 ) : BaseAdapter<CurrencyRateUi>(
@@ -48,7 +48,7 @@ class RatesListAdapter(
         }
 }
 
-fun rateDelegate(
+internal fun rateDelegate(
     onRateClick: (CurrencyRateUi) -> Unit,
     onTextChanged: (BigDecimal) -> Unit
 ) = adapterDelegate<CurrencyRateUi, CurrencyRateUi>(layout = R.layout.item_currency_rate) {

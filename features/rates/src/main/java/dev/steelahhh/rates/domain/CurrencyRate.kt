@@ -7,7 +7,7 @@ import java.math.BigDecimal
  * 4/1/20
  */
 
-data class CurrencyRate(
+internal data class CurrencyRate(
     val key: String,
     val name: String,
     val coefficient: BigDecimal

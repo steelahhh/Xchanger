@@ -46,8 +46,9 @@
         android:hint="@string/rate_empty_hint"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
+        android:maxLength="14"
         android:textColor="?android:textColorPrimary"
         android:textColorHint="?android:textColorSecondary"
-        android:textSize="20sp" />
+        android:textSize="@dimen/text_size_title" />
 
 </LinearLayout>
